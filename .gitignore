@@ -1,0 +1,8 @@
+node_modules
+.DS_Store
+/notes.md
+rethinkdb_data
+*.sublime-project
+*.sublime-workspace
+.env
+/assets
