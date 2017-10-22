@@ -93,6 +93,16 @@ module.exports = function () {
             }
         },{
             plugin: {
+                register: './modules/bill',
+                options: {}
+            },
+            options: {
+                routes: {
+                    prefix: '/api/bill'
+                }
+            }
+        },{
+            plugin: {
                 register: './modules/foodItem',
                 options: {}
             },

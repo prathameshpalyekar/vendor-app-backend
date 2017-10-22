@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Invoice PDF</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,400italic,600,600italic,300italic,300,700,700italic,800,800italic"/>
+    <style type="text/css">
+        html {
+            zoom: 0.60;
+        }
+        body {
+            font-family:  "Lato", sans-serif;
+            font-size:  19px;
+            color: #000;
+            line-height:  24px;
+            font-weight: 400;
+            margin: 0;
+        }
+        .main {
+            display: block;
+        }
+        .invoice {
+            text-align: center;
+            font-size: 13px;
+            color: #aaa;
+        }
+        .shop-name {
+            text-align: center;
+            font-size: 17px;
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .address {
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+            line-height: 1.2;
+        }
+        .phone {
+            text-align: center;
+            font-size: 13px;
+            color: #777;
+            line-height: 1.2;
+            margin-top: 5px;
+        }
+        .bill-info {
+            overflow: auto;
+        }
+        .bill-number, .bill-date {
+            display: inline-block;
+            width: 45%;
+            font-weight: bold;
+            font-size: 16px;
+            color: black;
+            margin: 5px;
+        }
+        .bill-number {
+            float: left;
+            text-align: left;
+        }
+        .bill-date {
+            float: right;
+            text-align: right;
+        }
+        .order-table {
+            width: 98%;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+        }
+        .order-header {
+            font-weight: bold;
+            border-bottom: 2px solid #888;
+        }
+        .item {
+            display: inline-block;
+            width: 45%;
+            text-align: center;
+            line-height: 1.3;
+        }
+        .qty {
+            display: inline-block;
+            width: 15%;
+            text-align: center;
+            line-height: 1.3;
+        }
+        .rate {
+            display: inline-block;
+            width: 20%;
+            text-align: center;
+            line-height: 1.3;
+        }
+        .amt {
+            display: inline-block;
+            width: 15%;
+            text-align: center;
+            line-height: 1.3;
+        }
+        .order-body {
+            font-size: 14px;
+        }
+        .total-info {
+            overflow: auto;
+        }
+        .label {
+            display: inline-block;
+            width: 45%;
+            font-weight: bold;
+            font-size: 16px;
+            color: black;
+            margin: 5px;
+            text-align: right;
+        }
+        .amount {
+            display: inline-block;
+            width: 45%;
+            font-weight: bold;
+            font-size: 16px;
+            color: black;
+            margin: 5px;
+            text-align: center;
+        }
+        .footer {
+            text-align: center;
+            font-weight: bold;
+            font-size: 15px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="invoice">Invoice</div>
+        <div class="shop-name">Chakala FC</div>
+        <div class="address">Shop No. 5-6, So Lucky Corner, Opp. Holy Family Church, Chakala Junction, Andheri East - 400033</div>
+        <div class="phone">Tel. No. 02243730011/08879983065</div>
+        <div class="bill-info">
+            <div class="bill-number">Bill no. {{billNumber}}</div>
+            <div class="bill-date">{{billDate}}</div>
+        </div>
+        <div class="order-table">
+            <div class="order-header">
+                <div class="item">Item</div>
+                <div class="qty">Qty</div>
+                <div class="rate">Rate</div>
+                <div class="amt">Amt</div>
+            </div>
+            <div class="order-body">
+                {{#each order }}
+                <div class="item">{{name}}</div>
+                <div class="qty">{{quantity}}</div>
+                <div class="rate">{{price}}</div>
+                <div class="amt">{{{multiplyNumbers price quantity}}}</div>
+                {{/each}}
+            </div>
+        </div>
+        <div class="total-info">
+            <div class="label">Total</div>
+            <div class="amount">{{total}}</div>
+        </div>
+        <div class="footer">Thank You.</div>
+    </div>
+</body>
+</html>
