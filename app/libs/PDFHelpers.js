@@ -15,9 +15,10 @@ const options = {
 };
 
 module.exports = {
-    createPDF: (html) => {
+    createPDF: (html, date, number) => {
         return new Promise((resolve, reject) => {
-            pdf.create(html, options).toFile('./bill.pdf', (err, res) => {
+            const filename = 'bills/' + date + '/' + number + '.pdf';
+            pdf.create(html, options).toFile(filename, (err, res) => {
                 if (err) {
                     return reject(err);
                 }

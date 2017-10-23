@@ -21,8 +21,7 @@ Handlebars.registerHelper('momentIsPast', function(date, format) {
 });
 
 Handlebars.registerHelper('multiplyNumbers', function(mult1, mult2) {
-	console.log(mult2, mult1)
-    return new Handlebars.SafeString(mult1 * mult2);
+	return new Handlebars.SafeString(mult1 * mult2);
 });
 
 export default function(data) {

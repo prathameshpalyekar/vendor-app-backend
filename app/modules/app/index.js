@@ -68,6 +68,14 @@ internals.register = (server, options, next) => {
                     path: 'assets'
                 }
             }
+        },{
+            method: 'GET',
+            path: '/bills/{param*}',
+            handler: {
+                directory: {
+                    path: 'bills'
+                }
+            }
         },
         {
         	method: 'GET',
